@@ -1,14 +1,12 @@
 [build]
-  command = "npm install --platform=linux --arch=x64 sharp && npm run build"
+  command = "npm install sharp --platform=linux --arch=x64 && npm run build"
   publish = ".next"
   environment = { 
     NODE_VERSION = "18.18.2",
-    NEXT_PUBLIC_ENV = "production",
-    NEXT_IGNORE_TYPECHECK_ERRORS = "true"  # Nuclear option
+    ENABLE_SHARP = "true" 
   }
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
   [plugins.inputs]
     enableNextJsCache = true
-    strictMode = false
