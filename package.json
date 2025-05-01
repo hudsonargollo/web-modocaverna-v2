@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "preinstall": "echo \"Disabling Go installation\" && exit 0"
+    "preinstall": "echo \"Skipping unnecessary installations\""
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
@@ -73,7 +73,8 @@
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
     "zod": "^3.24.1",
-    "zustand": "^5.0.3"
+    "zustand": "^5.0.3",
+    "sharp": "^0.33.2"
   },
   "devDependencies": {
     "@rocketseat/eslint-config": "^2.2.2",
