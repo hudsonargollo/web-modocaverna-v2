@@ -18,6 +18,10 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { z } from 'zod'
 
+if (!process.env.NEXT_PUBLIC_ENV || !process.env.NEXT_PUBLIC_GA_ID) {
+  throw new Error('Missing required environment variables');
+}
+
 const loginSchema = z.object({
   email: z
     .string({ required_error: 'Campo obrigatório ' })
