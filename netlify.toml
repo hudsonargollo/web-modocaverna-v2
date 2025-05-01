@@ -1,8 +1,8 @@
 [build]
-  # ✅ CORRECTED (added missing quote)
   command = "npm install sharp --platform=linux --arch=x64 && npm run build"
   publish = ".next"
 
 [build.environment]
-  NODE_VERSION = "18.18.2"
+  NODE_VERSION = "18.18.2"  # Explicitly set Node version
   ENABLE_SHARP = "true"
+  GO_VERSION = "none"       # Disable Go installation
