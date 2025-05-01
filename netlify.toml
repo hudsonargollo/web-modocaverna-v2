@@ -1,7 +1,8 @@
 [build]
-  command = "npm install && npm run build"
+  command = "npm install --legacy-peer-deps && npm run build"
   publish = ".next"
 
 [build.environment]
   NODE_VERSION = "18.18.2"
-  NPM_FLAGS = "--legacy-peer-deps"  # Helps with dependency conflicts
+  GO_VERSION = ""  # Disables Go installation
+  NPM_FLAGS = "--legacy-peer-deps"
