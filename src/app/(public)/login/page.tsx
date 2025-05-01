@@ -19,7 +19,11 @@ import { toast } from 'sonner'
 import { z } from 'zod'
 
 if (!process.env.NEXT_PUBLIC_ENV || !process.env.NEXT_PUBLIC_GA_ID) {
-  throw new Error('Missing required environment variables');
+  throw new Error(
+    'Missing required environment variables: ' +
+    `NEXT_PUBLIC_ENV=${process.env.NEXT_PUBLIC_ENV}, ` +
+    `NEXT_PUBLIC_GA_ID=${process.env.NEXT_PUBLIC_GA_ID}`
+  );
 }
 
 const loginSchema = z.object({
