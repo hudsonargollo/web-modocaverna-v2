@@ -1,5 +1,5 @@
 [build]
-  command = "CI= npm run build"
+  command = "npm install --platform=linux --arch=x64 sharp && npm run build"
   publish = ".next"
   environment = { 
     NODE_VERSION = "18.18.2",
