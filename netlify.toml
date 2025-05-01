@@ -3,5 +3,6 @@
   publish = ".next"
 
 [build.environment]
-  NODE_VERSION = "18.18.2"  # Required for Next.js compatibility
-  # Remove all Go-related configurations
+  NODE_VERSION = "18.18.2"  # Explicit Node version
+  # Completely disable Go installation
+  GO_VERSION = ""           # Empty string prevents Go install
