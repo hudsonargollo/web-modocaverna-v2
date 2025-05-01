@@ -1,8 +1,10 @@
 [build]
-  command = "npm install sharp --platform=linux --arch=x64 && npm run build"
+  command = "npm install --retry 3 && npm run build"
   publish = ".next"
 
 [build.environment]
-  NODE_VERSION = "18.18.2"  # Explicit Node version
-  # Completely disable Go installation
-  GO_VERSION = ""           # Empty string prevents Go install
+  NODE_VERSION = "18.18.2"
+  # Disable unnecessary language installations
+  GO_VERSION = ""
+  PYTHON_VERSION = ""
+  RUBY_VERSION = ""
