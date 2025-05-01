@@ -89,4 +89,7 @@
   "overrides": {
     "react-is": "^19.0.0-rc-69d4b800-20241021"
   }
+  "scripts": {
+  "preinstall": "echo \"Disabling Go installation\" && exit 0"
+  }
 }
