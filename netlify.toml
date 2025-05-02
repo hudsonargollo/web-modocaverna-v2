@@ -1,13 +1,17 @@
 [build]
-  command = "npm install --legacy-peer-deps && npm run build"
+  command = "npm install --legacy-peer-deps --force && npm run build"
   publish = ".next"
-  PHP_VERSION = "8.3"
 
 [build.environment]
-  NODE_VERSION = "18.18.2"  # Matches React 18 requirements
+  NODE_VERSION = "18.18.2"
   NPM_FLAGS = "--legacy-peer-deps"
-  GO_VERSION = ""  # Disables Go installation
+  # Remove PHP_VERSION as it's not needed for Next.js
+  # Remove GO_VERSION as empty values cause issues
 
 [context.production.environment]
   NEXT_PUBLIC_ENV = "production"
-  NEXT_PUBLIC_GA_ID = "UA-XXXXXX-X"  # Must match your actual GA ID
+  NEXT_PUBLIC_GA_ID = "UA-XXXXXX-X"  # Replace with your actual GA ID
+
+# Add Next.js specific optimizations
+[plugins]
+  package = "@netlify/plugin-nextjs"
