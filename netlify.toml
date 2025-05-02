@@ -1,6 +1,7 @@
 [build]
   command = "npm install --legacy-peer-deps && npm run build"
   publish = ".next"
+  PHP_VERSION = "8.3"
 
 [build.environment]
   NODE_VERSION = "18.18.2"  # Matches React 18 requirements
