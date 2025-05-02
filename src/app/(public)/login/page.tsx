@@ -1,22 +1,5 @@
-// Validate required environment variables
-const requiredEnvVars = {
-  NEXT_PUBLIC_ENV: process.env.NEXT_PUBLIC_ENV,
-  NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID
-};
-
-const missingVars = Object.entries(requiredEnvVars)
-  .filter(([_, value]) => !value)
-  .map(([key]) => key);
-
-if (missingVars.length > 0) {
-  console.error('Missing environment variables:', missingVars);
-  throw new Error(
-    `Missing required environment variables: ${missingVars.join(', ')}\n` +
-    `Current values: ${JSON.stringify(requiredEnvVars, null, 2)}`
-  );
-}
-
 'use client'
+
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Input } from '@/components/ui/input'
@@ -36,6 +19,23 @@ import { FormProvider, useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import { z } from 'zod'
 
+// Validate required environment variables
+const requiredEnvVars = {
+  NEXT_PUBLIC_ENV: process.env.NEXT_PUBLIC_ENV,
+  NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID
+};
+
+const missingVars = Object.entries(requiredEnvVars)
+  .filter(([_, value]) => !value)
+  .map(([key]) => key);
+
+if (missingVars.length > 0) {
+  console.error('Missing environment variables:', missingVars);
+  throw new Error(
+    `Missing required environment variables: ${missingVars.join(', ')}\n` +
+    `Current values: ${JSON.stringify(requiredEnvVars, null, 2)}`
+  );
+}
 
 const loginSchema = z.object({
   email: z
