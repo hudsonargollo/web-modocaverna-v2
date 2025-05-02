@@ -278,7 +278,7 @@ export function CentralHubHeader() {
             </div>
           </div>
         )}
-        <UserDropdown />
+        
       </div>
     </header>
   )
