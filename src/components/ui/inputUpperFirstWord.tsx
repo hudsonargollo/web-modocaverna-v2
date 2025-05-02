@@ -1,22 +1,31 @@
-/* eslint-disable */
-
 'use client'
 
-import { Input } from '@/components/ui/input'
-import { useState } from 'react'
+import { forwardRef } from 'react'
+import { Input, InputProps } from '@/components/ui/input'
 
-interface InputUpperFirstWordProps extends React.ComponentProps<'input'> {}
+interface InputUpperFirstWordProps extends InputProps {}
 
-export default function InputUpperFirstWord({
-  ...props
-}: InputUpperFirstWordProps) {
-  const [value, setValue] = useState('')
+const InputUpperFirstWord = forwardRef<HTMLInputElement, InputUpperFirstWordProps>(
+  ({ value, onChange, ...props }, ref) => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const newValue = e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1)
+      onChange?.({
+        ...e,
+        target: { ...e.target, value: newValue }
+      })
+    }
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    let inputValue = event.target.value
-    inputValue = inputValue.charAt(0).toUpperCase() + inputValue.slice(1)
-    setValue(inputValue)
+    return (
+      <Input
+        {...props}
+        value={value}
+        onChange={handleChange}
+        ref={ref}
+      />
+    )
   }
+)
 
-  return <Input {...props} value={value} onChange={handleChange} />
-}
+InputUpperFirstWord.displayName = 'InputUpperFirstWord'
+
+export default InputUpperFirstWord
