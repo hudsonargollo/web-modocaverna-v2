@@ -4,14 +4,11 @@
 
 [build.environment]
   NODE_VERSION = "18.18.2"
-  NPM_FLAGS = "--legacy-peer-deps"
-  # Remove PHP_VERSION as it's not needed for Next.js
-  # Remove GO_VERSION as empty values cause issues
 
 [context.production.environment]
   NEXT_PUBLIC_ENV = "production"
   NEXT_PUBLIC_GA_ID = "UA-XXXXXX-X"  # Replace with your actual GA ID
 
-# Add Next.js specific optimizations
-[plugins]
-  package = "@netlify/plugin-nextjs"
+# Optional Next.js plugin (uncomment if needed)
+# [plugins]
+#   package = "@netlify/plugin-nextjs"
