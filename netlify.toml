@@ -4,6 +4,8 @@
 
 [build.environment]
   NODE_VERSION = "18.18.2"
+  NPM_FLAGS = "--legacy-peer-deps"
+  ENABLE_GO = "false"
 
 [context.production.environment]
   NEXT_PUBLIC_ENV = "production"
